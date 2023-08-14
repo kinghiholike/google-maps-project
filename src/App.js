@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState, useEffect } from 'react';
+import { fetchLocations } from './api';
+import Sidebar from './components/Sidebar';
+import DisplayArea from './components/DisplayArea';
+import MapComponent from './components/MapComponent';
 
 function App() {
+  const [category, setCategory] = useState('restaurants'); // Default category
+  const [locations, setLocations] = useState([]);
+
+  const handleCategoryChange = (selectedCategory) => {
+    setCategory(selectedCategory);
+  };
+
+  // Fetch locations based on the selected category
+  useEffect(() => {
+    fetchLocations(category)
+      .then((data) => {
+        setLocations(data); // Update the state with fetched data
+      })
+      .catch((error) => {
+        console.error('Error fetching locations:', error);
+      });
+  }, [category]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Sidebar onCategoryChange={handleCategoryChange} />
+      <DisplayArea locations={locations} />
+
+     //<MapComponent locations={locations} center={{ lat: 0, lng: 0 }} />
+
+      <MapComponent markers={locationData} />
     </div>
   );
 }
 
 export default App;
+
