@@ -1,34 +1,70 @@
-import React from 'react';
-import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function MapComponent({ markers }) {
-  const mapContainerStyle = {
-    width: '100%',
-    height: '400px',
-  };
+function LocationMap() {
+  const [locationData, setLocationData] = useState({});
+  const apiKey = 'Kpf_cIMn811kyCRFXFJYQi3WCrSu2PgXE2_BxsF5r1pDhJBo_mil6Seg-NUyzOCDhB63_-_ORiTXCzJT24dR_lvorvB-tpRbeUZvA6WW6jgxnhu-pH9k-OH4tfTcZHYx'; // Replace with your Yelp API key
+  const term = 'restaurants'; // You can customize the search term
+  const searchLocation = 'New York'; // Replace with the location you want to search for
 
-  const center = {
-    lat: -22.55620002746582, 
-    lng: 17.075899124145508, 
+  useEffect(() => {
+    // Fetch location data using Yelp Fusion API
+    axios
+      .get(`https://api.yelp.com/v3/businesses/search?term=${term}&location=${searchLocation}&limit=1`, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        }
+      })
+      .then(response => {
+        setLocationData(response.data.businesses[0]);
+      })
+      .catch(error => {
+        console.error('Error fetching Yelp data:', error);
+      });
+  }, [apiKey, term, searchLocation]);
+
+  // Google Maps initialization
+  useEffect(() => {
+    // Load the Google Maps API script dynamically
+    const googleMapsScript = document.createElement('script');
+    googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCU4P2nlmLu8hP8KNFkq91xYH6gtxlyunw`;
+    googleMapsScript.async = true;
+    googleMapsScript.defer = true;
+    document.head.appendChild(googleMapsScript);
+
+    // Callback function after Google Maps script is loaded
+    googleMapsScript.onload = initMap;
+  }, []);
+
+  const initMap = () => {
+    const map = new window.google.maps.Map(document.getElementById('map'), {
+      center: { lat: locationData.latitude, lng: locationData.longitude }, // Use the fetched latitude and longitude
+      zoom: 15 // Set the initial zoom level
+    });
+
+    // Add a marker to the map
+    new window.google.maps.Marker({
+      position: { lat: locationData.latitude, lng: locationData.longitude }, // Use the fetched latitude and longitude
+      map: map,
+      title: locationData.name // Set the marker title
+    });
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCU4P2nlmLu8hP8KNFkq91xYH6gtxlyunw">
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={center}
-        zoom={10} 
-      >
-        {markers.map((marker, index) => (
-          <Marker
-            key={index}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            title={marker.name}
-          />
-        ))}
-      </GoogleMap>
-    </LoadScript>
+    <div>
+      {/* Display location data */}
+      <h1>Location Information</h1>
+      {locationData.name && <p>Name: {locationData.name}</p>}
+      {locationData.location && (
+        <p>
+          Location: {locationData.location.address1}, {locationData.location.city}
+        </p>
+      )}
+
+      {/* Display the Google Map */}
+      <div id="map" style={{ width: '100%', height: '800px' }}></div>
+    </div>
   );
 }
 
-export default MapComponent;
+export default LocationMap;

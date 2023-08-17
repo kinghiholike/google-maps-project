@@ -1,7 +1,7 @@
 // api.js
 
 // Replace 'YOUR_YELP_API_KEY' with your actual Yelp API key
-const YELP_API_KEY = 'YOUR_YELP_API_KEY';
+const YELP_API_KEY = 'Kpf_cIMn811kyCRFXFJYQi3WCrSu2PgXE2_BxsF5r1pDhJBo_mil6Seg-NUyzOCDhB63_-_ORiTXCzJT24dR_lvorvB-tpRbeUZvA6WW6jgxnhu-pH9k-OH4tfTcZHYx';
 const YELP_API_BASE_URL = 'https://api.yelp.com/v3/businesses/search';
 
 export const fetchLocations = async (category) => {
