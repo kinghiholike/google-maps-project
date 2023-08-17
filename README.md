@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+Google Maps Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is a web application that integrates the Google Maps JavaScript API and utilizes a public location-based API to display points of interest on an interactive map.
 
-In the project directory, you can run:
 
-### `npm start`
+Table of Contents
+•	Getting Started
+•	Technical Requirements
+•	Features
+•	Installation
+•	Usage
+•	License
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Getting Started
+To get started with the project, follow these steps:
+1.	Clone the repository to your local machine using the following command:
+bashCopy code
+git clone https://github.com/kinghiholike/google-maps-project.git 
+2.	Install the required dependencies by navigating to the project directory and running:
+bashCopy code
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install 
+4.	Obtain a Google Maps API key by following the instructions provided by Google. This key will be needed to integrate Google Maps into the application.
+5.	Choose a public location-based API and obtain any necessary API keys or credentials.
+6.	Configure the project by creating a .env file in the root directory and adding the following lines:
+envCopy code
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key REACT_APP_LOCATION_API_KEY=your_location_api_key 
+7.	Start the development server:
+bashCopy code
+npm start 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Technical Requirements
+1.	Google Maps Integration: The project uses the Google Maps JavaScript API to display an interactive map with markers representing various locations.
+2.	API Integration: The application fetches location-based data from a public API. Ensure you've chosen a suitable API and provided the necessary API key in the configuration.
+3.	Frontend Components: The application's frontend is built using React and the Material-UI library. Key components include a category selector, a display area for fetched data, and map markers.
+4.	User Interaction: Users can interact with the map by selecting a category, clicking on markers to view additional information, and updating data based on their preferences.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Features
+•	Interactive map with Google Maps integration.
+•	Sidebar or dropdown for selecting location categories.
+•	Display area for showing information about fetched locations.
+•	Map markers corresponding to selected locations.
+•	User-friendly interface for interacting with the map and data.
+Installation
+After cloning the repository and installing dependencies, ensure you've configured the API keys and credentials as mentioned in the Getting Started section.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Usage
+1.	Launch the application using npm start.
+2.	Use the sidebar or dropdown to select a location category.
+3.	Explore the map and markers to discover points of interest.
+4.	Click on markers to view additional details about each location.
+License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
