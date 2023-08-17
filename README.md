@@ -5,6 +5,7 @@ This project is a web application that integrates the Google Maps JavaScript API
 
 
 Table of Contents
+
 •	Getting Started
 •	Technical Requirements
 •	Features
@@ -39,6 +40,7 @@ Technical Requirements
 
 
 Features
+
 •	Interactive map with Google Maps integration.
 •	Sidebar or dropdown for selecting location categories.
 •	Display area for showing information about fetched locations.
@@ -50,6 +52,7 @@ After cloning the repository and installing dependencies, ensure you've configur
 #
 
 Usage
+
 1.	Launch the application using npm start.
 2.	Use the sidebar or dropdown to select a location category.
 3.	Explore the map and markers to discover points of interest.
@@ -57,5 +60,7 @@ Usage
 
 
 License
+
+
 This project is licensed under the MIT License.
 
