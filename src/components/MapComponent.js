@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function LocationMap() {
   const [locationData, setLocationData] = useState({});
-  const apiKey = 'Kpf_cIMn811kyCRFXFJYQi3WCrSu2PgXE2_BxsF5r1pDhJBo_mil6Seg-NUyzOCDhB63_-_ORiTXCzJT24dR_lvorvB-tpRbeUZvA6WW6jgxnhu-pH9k-OH4tfTcZHYx'; // Replace with your Yelp API key
+  const apiKey = ''; // Replace with your Yelp API key
   const term = 'restaurants'; // You can customize the search term
   const searchLocation = 'New York'; // Replace with the location you want to search for
 
@@ -27,7 +27,7 @@ function LocationMap() {
   useEffect(() => {
     // Load the Google Maps API script dynamically
     const googleMapsScript = document.createElement('script');
-    googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCU4P2nlmLu8hP8KNFkq91xYH6gtxlyunw`;
+    googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=`;
     googleMapsScript.async = true;
     googleMapsScript.defer = true;
     document.head.appendChild(googleMapsScript);
