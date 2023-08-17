@@ -21,6 +21,8 @@ function LocationMap() {
       .catch(error => {
         console.error('Error fetching Yelp data:', error);
       });
+     
+
   }, [apiKey, term, searchLocation]);
 
   // Google Maps initialization
@@ -53,7 +55,7 @@ function LocationMap() {
   return (
     <div>
       {/* Display location data */}
-      <h1>Location Information</h1>
+      <h1 color='blue'>Location Information</h1>
       {locationData.name && <p>Name: {locationData.name}</p>}
       {locationData.location && (
         <p>
@@ -62,7 +64,7 @@ function LocationMap() {
       )}
 
       {/* Display the Google Map */}
-      <div id="map" style={{ width: '100%', height: '800px' }}></div>
+      <div id="map" style={{ width: '100%', height: '600px' }}></div>
     </div>
   );
 }
