@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sidebar.css'; // Import your custom CSS file for styling
+import './Sidebar.css'; // Importing CSS file for styling
 
 function Sidebar(props) {
   const [selectedCategory, setSelectedCategory] = useState('restaurants');
@@ -14,19 +14,25 @@ function Sidebar(props) {
     { value: 'restaurants', label: 'Restaurants' },
     { value: 'parks', label: 'Parks' },
     { value: 'hotels', label: 'Hotels' },
-    // Add more category options
+    // Category options
   ];
+
+
+
 
   return (
     <div className="sidebar">
-      <h2>Explore Categories</h2>
-      <select className="category-dropdown" value={selectedCategory} onChange={handleCategoryChange}>
+      
+      <label htmlFor="category-dropdown">Select a category:</label>
+<select id="category-dropdown" value={selectedCategory} onChange={handleCategoryChange}>
         {categoryOptions.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
-      </select>
+  
+</select>
+      
       <p className="selected-feedback">You've selected: {selectedCategory}</p>
     </div>
   );

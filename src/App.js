@@ -17,7 +17,7 @@ function App() {
     setCategory(selectedCategory);
   };
 
-  // Fetch locations based on the selected category
+  // Fetching locations based on the selected category
   useEffect(() => {
     fetchLocations(category)
       .then((data) => {
@@ -27,7 +27,7 @@ function App() {
           lng: location.longitude,
         })));
       })
-      .catch((error) => {
+      .catch((error) =>  {
         console.error('Error fetching locations:', error);
       });
   }, [category]);
