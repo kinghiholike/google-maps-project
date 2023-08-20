@@ -14,7 +14,9 @@ function Sidebar(props) {
     { value: 'restaurants', label: 'Restaurants' },
     { value: 'parks', label: 'Parks' },
     { value: 'hotels', label: 'Hotels' },
-    // Category options
+    { value: 'Schools', label: 'Schools' },
+    { value: 'Gas Station', label: 'Gas Station' }
+    
   ];
 
 

@@ -1,0 +1,28 @@
+/* MapComponent.css */
+
+.map-container {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .map-container {
+      height: 300px;
+    }
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  
+  

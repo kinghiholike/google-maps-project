@@ -1,12 +1,12 @@
 const express = require('express');
 const axios = require('axios');
-const cors = require('cors'); // Importing the cors package
+ 
 
 
 const app = express();
-const PORT = any;
+const PORT = 3000;
 const express = require('express');
-const cors = require('cors'); // Importing the cors middleware
+
 
 
 
@@ -18,7 +18,7 @@ app.use(express.json());
 // Middleware with proper configuration
 app.use(cors({
   origin: 'http://localhost:3000', // Origin of your frontend app
-  methods: 'GET', // HTTP methods
+  methods: 'GET', // Methods
 }));
 
 app.get('/api/yelp-data', async (req, res) => {
